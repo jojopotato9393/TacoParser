@@ -32,6 +32,30 @@ namespace LoggingKata
 
   
             // Complete the Parse method in TacoParser class first and then START BELOW ----------
+           ITrackable tacoBell1 =null;
+           ITrackable tacoBell2 =null;
+            double maxDis = 0;
+            for(int i = 0; i < locations.Length; i++)
+            {
+                var loc1 = locations[i];
+                var cor1 = new GeoCoordinate(loc1.Location.Latitude, loc1.Location.Longitude);
+
+                for (int a = i + 1; a < locations.Length; a++)
+                {
+                    var loc2 = locations[a];
+                    var cor2 = new GeoCoordinate(loc2.Location.Latitude, loc2.Location.Longitude);
+                    double dis = cor1.GetDistanceTo(cor2);
+                    if (dis > maxDis)
+                    {
+                        maxDis = dis;
+                        tacoBell1 = loc1;
+                        tacoBell2 = loc2;
+                    }
+
+                }
+            }
+            Console.WriteLine(tacoBell1.Name);
+            Console.WriteLine(tacoBell2.Name);
 
             // TODO: Create two `ITrackable` variables with initial values of `null`. 
             // These will be used to store your two Taco Bells that are the farthest from each other.
