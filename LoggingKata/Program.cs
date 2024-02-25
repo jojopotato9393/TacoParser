@@ -34,7 +34,10 @@ namespace LoggingKata
             // Complete the Parse method in TacoParser class first and then START BELOW ----------
            ITrackable tacoBell1 =null;
            ITrackable tacoBell2 =null;
+
             double maxDis = 0;
+
+
             for(int i = 0; i < locations.Length; i++)
             {
                 var loc1 = locations[i];
@@ -44,7 +47,10 @@ namespace LoggingKata
                 {
                     var loc2 = locations[a];
                     var cor2 = new GeoCoordinate(loc2.Location.Latitude, loc2.Location.Longitude);
+
                     double dis = cor1.GetDistanceTo(cor2);
+
+
                     if (dis > maxDis)
                     {
                         maxDis = dis;
